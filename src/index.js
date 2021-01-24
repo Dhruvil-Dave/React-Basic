@@ -4,10 +4,37 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+let curDate = new Date();
+curDate = curDate.getHours();
+let greeting = '';
+
+const cssStyle = { };
+
+if(curDate>=1 && curDate<12){
+    greeting = "Good Morning";
+    cssStyle.color = 'blue';
+}
+else if(curDate>=12 && curDate<16){
+    greeting = "Good Afternoon";
+    cssStyle.color = 'orange';
+}
+else if(curDate>=16 && curDate<21){
+    greeting = "Good evening";
+    cssStyle.color = 'violet';
+}
+else{
+    greeting = "Good Night";
+    cssStyle.color = 'grey';
+}
+
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+	<React.Fragment>
+    <div>
+	<h1>Hello Sir, <span style={cssStyle}>{greeting}</span></h1>
+	</div>
+	</React.Fragment>
+	,
   document.getElementById('root')
 );
 
